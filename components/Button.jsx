@@ -1,5 +1,6 @@
 import React from 'react';
-import { TouchableOpacity, Text, Linking } from 'react-native';
+import { StyleSheet, TouchableOpacity, Text, Linking } from 'react-native';
+import { green, darkGreen } from '../constants/Colors';
 
 function Button({ name, link }) {
     const handlePress = () => {
@@ -12,12 +13,29 @@ function Button({ name, link }) {
 
     return (
         <TouchableOpacity
-            style={{ padding: 10, backgroundColor: '#007AFF', borderRadius: 5 }}
+            style={styles.button}
             onPress={handlePress}
         >
-            <Text style={{ color: '#fff' }}>{name || 'Click Me'}</Text>
+            <Text style={styles.text}>{name || 'Click Me'}</Text>
         </TouchableOpacity>
     );
 }
+
+    const styles = StyleSheet.create({
+
+      button: {
+        padding: 10,
+        backgroundColor: green, 
+        borderRadius: 50,
+        width: 300,
+        height: 60,
+        justifyContent: 'center',
+        alignItems: 'center',
+        margin: 10,
+      },
+      text: {
+ 
+      }
+    });
 
 export default Button;
