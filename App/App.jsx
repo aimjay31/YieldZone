@@ -7,13 +7,11 @@ export default function App() {
     <View style={styles.container}>
       <Text>YieldZone</Text>
       <StatusBar style="auto" />
-      <Button />
-      <Text>Hi</Text>
+      <Button name = "Button" link = "https://www.google.com"/>
     </View>
 
   );
 }
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
