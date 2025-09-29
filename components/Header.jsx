@@ -3,26 +3,37 @@ import { View, Text, StyleSheet } from 'react-native';
 import HeaderAddress from './HeaderAddress';
 import HeaderSearch from './HeaderSearch';
 
+const HEADER_HEIGHT = 200;
+const BORDER_RADIUS = 40;
+
 const Header = ({ color = 'gray' }) => {
   return (
-    <View style={[styles.container, { backgroundColor: color }]}>
-      
-      {/* HeaderAddress at the top */}
-      <View style={styles.addressContainer}>
-        <HeaderAddress />
-      </View>
-
-      {/* Profile and Logo row */}
+    <View
+      style={[
+        styles.container,
+        {
+          backgroundColor: color,
+          height: HEADER_HEIGHT,
+          borderBottomLeftRadius: BORDER_RADIUS,
+          borderBottomRightRadius: BORDER_RADIUS,
+        },
+      ]}
+    >
+      {/* Logo and Profile row */}
       <View style={styles.topRow}>
         <Text style={styles.logo}>Logo</Text>
         <Text style={styles.profile}>Profile</Text>
       </View>
 
-      {/* Search bar at the bottom */}
-      <View style={styles.searchContainer}>
-        <HeaderSearch placeholder="Search for farms, products, rice..." />
+      {/* Address in center instead of YieldZone */}
+      <View style={styles.centerContent}>
+        <HeaderAddress />
       </View>
 
+      {/* Search bar at bottom */}
+      <View style={styles.searchContainer}>
+        <HeaderSearch placeholder="Search for farms, rice..." />
+      </View>
     </View>
   );
 };
@@ -30,48 +41,41 @@ const Header = ({ color = 'gray' }) => {
 const styles = StyleSheet.create({
   container: {
     width: '100%',
-    height: 180,
-    borderBottomLeftRadius: 30,
-    borderBottomRightRadius: 30,
-    alignItems: 'center',
     position: 'absolute',
     top: 0,
-    paddingTop: 10,
+    left: 0,
+    right: 0,
+    overflow: 'hidden',
     paddingHorizontal: 15,
-  },
-  addressContainer: {
-    position: 'absolute',
-    top: 40,
-    width: '100%',
-    alignItems: 'center',
+    paddingTop: 15,
+    justifyContent: 'space-between',
   },
   topRow: {
-    width: '100%',
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginTop: 40, // space below address
-    paddingHorizontal: 15,
+    marginTop: 40,
   },
-  profile: {
-    color: '#fff',
-    fontWeight: 'bold',
+  profile: { 
+    color: '#fff', 
+    fontWeight: 'bold' 
   },
-  logo: {
-    color: '#fff',
-    fontWeight: 'bold',
+  logo: { color: '#fff', 
+    fontWeight: 'bold' 
   },
-  title: {
-    color: '#fff',
-    fontSize: 22,
-    fontWeight: 'bold',
+
+  // address is now in the middle
+  centerContent: {
+    alignItems: 'center',
+    marginVertical: 10,
+    marginTop: 0,
   },
   searchContainer: {
-    position: 'absolute',
-    bottom: 10,
-    width: '100%',
     alignItems: 'center',
+    marginBottom: 5,
+
   },
 });
 
 export default Header;
+export { HEADER_HEIGHT };

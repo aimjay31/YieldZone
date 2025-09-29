@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
+import { View, StyleSheet } from 'react-native';
 import Home from './app/Home.jsx';
 import Map from './app/Map.jsx';
 import Following from './app/Following.jsx';
-import Profile from './app/Profile.jsx';
-import Navigation from './components/Navigation.jsx';
 import Message from './app/Message.jsx';
+import Navigation from './components/Navigation.jsx';
+import Header from './components/Header.jsx';
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState('Home');
@@ -26,9 +27,20 @@ export default function App() {
   };
 
   return (
-    <>
-      {renderPage()}
+    <View style={styles.container}>
+      <Header color="gray"/>
+
+      <View style={styles.pageContent}>
+        {renderPage()}
+      </View>
+
       <Navigation currentPage={currentPage} setCurrentPage={setCurrentPage} />
-    </>
+    </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: { flex: 1 },
+  pageContent: { flex: 1, marginTop: 200,
+   }, // space for header
+});
