@@ -10,7 +10,7 @@ const Profile = () => {
 };
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: '#444', justifyContent: 'center', alignItems: 'center' },
+  container: { flex: 1, backgroundColor: '#159947', justifyContent: 'center', alignItems: 'center' },
   text: { color: '#fff', fontSize: 18 },
 });
 

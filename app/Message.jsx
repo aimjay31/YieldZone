@@ -53,7 +53,7 @@ const Messages = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#2c2c2c',
+    backgroundColor: '#ffffffff',
     paddingHorizontal: 10,
   },
   title: {

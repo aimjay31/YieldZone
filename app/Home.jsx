@@ -47,6 +47,10 @@ const Home = () => {
 };
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#159947',
+  },
   text: {
     color: '#fff',
     fontSize: 18,

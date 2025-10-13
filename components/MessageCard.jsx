@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingVertical: 12,
     paddingHorizontal: 10,
-    backgroundColor: '#535353',
+    backgroundColor: '#005d13ff',
   },
   avatar: {
     width: 50,

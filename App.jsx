@@ -28,7 +28,7 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <Header color="gray"/>
+      <Header color="#159947"/>
 
       <View style={styles.pageContent}>
         {renderPage()}

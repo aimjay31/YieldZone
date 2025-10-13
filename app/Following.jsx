@@ -40,7 +40,7 @@ const Following = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#535353',
+    backgroundColor: '#ffffffff',
     padding: 20,
   },
   title: {
