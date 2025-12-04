@@ -1,12 +1,12 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import HeaderAddress from './HeaderAddress';
 import HeaderSearch from './HeaderSearch';
 
 const HEADER_HEIGHT = 200;
 const BORDER_RADIUS = 40;
 
-const Header = ({ color = 'gray' }) => {
+const Header = ({ color = 'gray', setCurrentPage }) => {
   return (
     <View
       style={[
@@ -22,15 +22,22 @@ const Header = ({ color = 'gray' }) => {
       {/* Logo and Profile row */}
       <View style={styles.topRow}>
         <Text style={styles.logo}>Logo</Text>
-        <Text style={styles.profile}>Profile</Text>
+
+        {/* PROFILE BUTTON (TOP RIGHT) */}
+        <TouchableOpacity onPress={() => setCurrentPage('Profile')}>
+          <Image
+            source={require('../assets/ProfileIcon.png')}
+            style={{ width: 35, height: 35, borderRadius: 20 }}
+          />
+        </TouchableOpacity>
       </View>
 
-      {/* Address in center instead of YieldZone */}
+      {/* Address */}
       <View style={styles.centerContent}>
         <HeaderAddress />
       </View>
 
-      {/* Search bar at bottom */}
+      {/* Search bar */}
       <View style={styles.searchContainer}>
         <HeaderSearch placeholder="Search for farms, rice..." />
       </View>
@@ -46,7 +53,7 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
     overflow: 'hidden',
-    paddingHorizontal: 15,
+    paddingHorizontal: 10,
     paddingTop: 15,
     justifyContent: 'space-between',
     backgroundColor: '#159947',
@@ -55,26 +62,23 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginTop: 40,
+    marginTop: 25,
   },
-  profile: { 
-    color: '#fff', 
-    fontWeight: 'bold' 
+  profile: {
+    color: '#fff',
+    fontWeight: 'bold'
   },
-  logo: { color: '#fff', 
-    fontWeight: 'bold' 
+  logo: {
+    color: '#fff',
+    fontWeight: 'bold'
   },
-
-  // address is now in the middle
   centerContent: {
     alignItems: 'center',
-    marginVertical: 10,
-    marginTop: 0,
+    marginVertical: 5,
   },
   searchContainer: {
     alignItems: 'center',
     marginBottom: 5,
-
   },
 });
 

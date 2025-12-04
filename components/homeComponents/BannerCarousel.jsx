@@ -1,31 +1,30 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { View, ScrollView, StyleSheet, Dimensions, Text } from 'react-native';
+import { View, ScrollView, StyleSheet, Dimensions, Image } from 'react-native';
 
 const { width } = Dimensions.get('window');
-const SLIDE_WIDTH = width * 0.8; // smaller than screen width
-const SIDE_PADDING = (width - SLIDE_WIDTH) / 2; // padding to center slides
+const SLIDE_WIDTH = width * 0.8;
+const SIDE_PADDING = (width - SLIDE_WIDTH) / 2;
 
 const BannerCarousel = () => {
+  
   const slides = [
-    { id: 1, text: 'Slide 1' },
-    { id: 2, text: 'Slide 2' },
-    { id: 3, text: 'Slide 3' },
+    { id: 1, image: require('../../assets/Banner1.jpg') },
+    { id: 2, image: require('../../assets/Banner2.jpg') },
+    { id: 3, image: require('../../assets/Banner3.jpg') },
   ];
 
   const scrollRef = useRef(null);
-  const [activeIndex, setActiveIndex] = useState(1); // start with Slide 2
+  const [activeIndex, setActiveIndex] = useState(1);
 
   useEffect(() => {
-    // Scroll to the second slide on mount
     if (scrollRef.current) {
-      scrollRef.current.scrollTo({ x: SLIDE_WIDTH + 20, animated: false }); 
-      // +20 to account for marginHorizontal
+      scrollRef.current.scrollTo({ x: SLIDE_WIDTH + 20, animated: false });
     }
   }, []);
 
   const handleScroll = (event) => {
     const offsetX = event.nativeEvent.contentOffset.x;
-    const index = Math.round(offsetX / (SLIDE_WIDTH + 20)); // calculate current slide
+    const index = Math.round(offsetX / (SLIDE_WIDTH + 20));
     setActiveIndex(index);
   };
 
@@ -35,7 +34,7 @@ const BannerCarousel = () => {
         ref={scrollRef}
         horizontal
         showsHorizontalScrollIndicator={false}
-        snapToInterval={SLIDE_WIDTH + 20} // width + margin
+        snapToInterval={SLIDE_WIDTH + 20}
         decelerationRate="fast"
         onScroll={handleScroll}
         scrollEventThrottle={16}
@@ -43,12 +42,11 @@ const BannerCarousel = () => {
       >
         {slides.map((slide) => (
           <View key={slide.id} style={styles.slide}>
-            <Text style={styles.slideText}>{slide.text}</Text>
+            <Image source={slide.image} style={styles.bannerImage} />
           </View>
         ))}
       </ScrollView>
 
-      {/* Pagination Dots */}
       <View style={styles.dotsContainer}>
         {slides.map((_, index) => (
           <View
@@ -67,21 +65,20 @@ const BannerCarousel = () => {
 const styles = StyleSheet.create({
   container: {
     width: '100%',
-    height: 220, // increased a little for dots
+    height: 220,
   },
   slide: {
     width: SLIDE_WIDTH,
     height: 200,
-    backgroundColor: '#b2b2b2ff', // keep your color
-    justifyContent: 'center',
-    alignItems: 'center',
     borderRadius: 15,
     marginHorizontal: 10,
+    overflow: 'hidden', // IMPORTANT to round image corners
+    backgroundColor: '#e0e0e0',
   },
-  slideText: {
-    color: '#fff',
-    fontSize: 20,
-    fontWeight: 'bold',
+  bannerImage: {
+    width: '100%',
+    height: '100%',
+    resizeMode: 'cover',
   },
   dotsContainer: {
     position: 'absolute',

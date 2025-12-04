@@ -23,6 +23,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#159947',
     alignItems: 'center',
     justifyContent: 'center',
+    MarginTop: 5,
   },
   text: {
     fontSize: 16,
