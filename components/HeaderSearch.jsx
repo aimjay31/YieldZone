@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
   container: {
     width: '90%',
     marginHorizontal: '5%',
-    marginVertical: 10,
+    marginVertical: 0,
     borderRadius: 25,
     backgroundColor: '#fff',
     elevation: 3, // adds shadow on Android

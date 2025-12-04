@@ -9,14 +9,14 @@ const CARD_MARGIN = 10;
 const CARD_WIDTH = (SCREEN_WIDTH / 2) - (CARD_MARGIN * 3);
 
 const products = [
-  { id: '1', name: 'Fresh Apples', description: 'Organic red apples from the farm.', image: require('../assets/icon.png') },
-  { id: '2', name: 'Bananas', description: 'Fresh yellow bananas.', image: { uri: 'https://via.placeholder.com/300x150' } },
-  { id: '3', name: 'Carrots', description: 'Organic carrots, fresh from the soil.', image: { uri: 'https://via.placeholder.com/300x150' } },
-  { id: '4', name: 'Tomatoes', description: 'Ripe red tomatoes.', image: { uri: 'https://via.placeholder.com/300x150' } },
-  { id: '5', name: 'Oranges', description: 'Juicy oranges full of vitamin C.', image: { uri: 'https://via.placeholder.com/300x150' } },
-  { id: '6', name: 'Grapes', description: 'Fresh green grapes, sweet and seedless.', image: { uri: 'https://via.placeholder.com/300x150' } },
-  { id: '7', name: 'Pineapples', description: 'Tropical pineapples, fresh and tangy.', image: { uri: 'https://via.placeholder.com/300x150' } },
-  { id: '8', name: 'Strawberries', description: 'Red strawberries, perfect for desserts.', image: { uri: 'https://via.placeholder.com/300x150' } },
+  { id: '1', name: 'Fresh Apples', description: 'Organic red apples from the farm.', image: require('../assets/apple.png') },
+  { id: '2', name: 'Bananas', description: 'Fresh yellow bananas.', image: require('../assets/banana.png') },
+  { id: '3', name: 'Carrots', description: 'Organic carrots, fresh from the soil.', image: require('../assets/carrots.png')  },
+  { id: '4', name: 'Tomatoes', description: 'Ripe red tomatoes.', image: require('../assets/tomatoes.png')  },
+  { id: '5', name: 'Oranges', description: 'Juicy oranges full of vitamin C.', image: require('../assets/orange.png')  },
+  { id: '6', name: 'Grapes', description: 'Fresh green grapes, sweet and seedless.', image: require('../assets/grapes.png') },
+  { id: '7', name: 'Pineapples', description: 'Tropical pineapples, fresh and tangy.', image: require('../assets/pineapple.png')  },
+  { id: '8', name: 'Strawberries', description: 'Red strawberries, perfect for desserts.', image: require('../assets/strawberry.png') },
 ];
 
 const Home = () => {

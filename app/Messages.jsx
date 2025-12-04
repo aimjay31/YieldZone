@@ -6,14 +6,14 @@ import MessageCard from '../components/MessageCard';
 const initialMessages = [
   {
     id: '1',
-    name: 'Alice Johnson',
+    name: 'Farm Fresh',
     message: 'Hey, are the rice still available?',
     time: '10:24 AM',
     image: 'https://via.placeholder.com/100',
   },
   {
     id: '2',
-    name: 'Bob Smith',
+    name: 'Canoy Store',
     message: 'Thanks sa pag deliver!',
     time: 'Yesterday',
     image: 'https://via.placeholder.com/100',
@@ -27,8 +27,13 @@ const initialMessages = [
   },
 ];
 
-const Messages = () => {
-  const [messages, setMessages] = useState(initialMessages);
+const Messages = ({ setCurrentPage, setCurrentChat }) => {
+  const [messages] = useState(initialMessages);
+
+  const handleOpenChat = (chat) => {
+    setCurrentChat(chat);       // store selected chat
+    setCurrentPage('UserMessages'); // navigate to UserMessages page
+  };
 
   return (
     <View style={styles.container}>
@@ -42,7 +47,7 @@ const Messages = () => {
             message={item.message}
             time={item.time}
             image={item.image}
-            onPress={() => console.log('Open chat with', item.name)}
+            onPress={() => handleOpenChat(item)}
           />
         )}
       />
@@ -55,6 +60,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#ffffffff',
     paddingHorizontal: 10,
+    paddingTop: 10,
   },
   title: {
     color: '#fff',

@@ -7,7 +7,12 @@ const ProductCard = ({ image, name, description, width = 185 }) => {
       <View style={styles.imageContainer}>
         <Image source={image} style={styles.image} resizeMode="cover" />
 
-        {/* Name overlay with semi-transparent white background */}
+        {/* ⭐ Tiny star at the top-right corner */}
+        <View style={styles.starContainer}>
+          <Text style={styles.star}>★</Text>
+        </View>
+
+        {/* Name overlay */}
         <View style={styles.nameOverlay}>
           <Text style={styles.nameText}>{name}</Text>
         </View>
@@ -41,13 +46,28 @@ const styles = StyleSheet.create({
     height: '100%',
     width: '100%',
   },
+
+  /* ⭐ STAR STYLE */
+  starContainer: {
+    position: 'absolute',
+    top: 8,
+    right: 8,
+    backgroundColor: 'rgba(0,0,0,0.3)',
+    paddingVertical: 2,
+    paddingHorizontal: 4,
+    borderRadius: 6,
+  },
+  star: {
+    color: '#FFD700', // bright yellow
+    fontSize: 14,
+    fontWeight: 'bold',
+  },
+
   nameOverlay: {
     position: 'absolute',
     bottom: 0,
     width: '100%',
-    backgroundColor: 'rgba(255,255,255,0.3)', // white with 30% opacity
-    borderBottomLeftRadius: 0,
-    borderBottomRightRadius: 0,
+    backgroundColor: 'rgba(255,255,255,0.3)',
     paddingVertical: 8,
     alignItems: 'center',
   },

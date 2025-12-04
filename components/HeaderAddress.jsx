@@ -19,11 +19,10 @@ const HeaderAddress = ({ address = "123 Main Street Cagayan de Oro City" }) => {
 
 const styles = StyleSheet.create({
   container: {
-    padding: 10,
     backgroundColor: '#159947',
     alignItems: 'center',
     justifyContent: 'center',
-    MarginTop: 5,
+    MarginTop: 0,
   },
   text: {
     fontSize: 16,
